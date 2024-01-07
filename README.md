@@ -16,6 +16,8 @@ Easy Schedule is a simple software tool that can help you find the common availa
 
 3. Easy Schedule does not save anything that were created and data will be gone if the page is refreshed or reloaded<br><br>
 
-## License
+## Demo URL
+https://easy-schedule-sigma.vercel.app/ <br><br>
 
+## License
 This software is released under [MIT LICENSE](./LICENSE)
