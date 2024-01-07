@@ -3,7 +3,6 @@ import ScheduleAdd from "../components/ScheduleAdd"
 import MemberDelete from "../components/MemberDel"
 import memberIsValid from "../utils/member_validator"
 import Solution from "../components/Solution"
-import { Link } from "react-router-dom"
 
 interface Modal {
 	action: string
