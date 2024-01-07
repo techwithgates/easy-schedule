@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# Easy Schedule
+## Introduction
+Easy Schedule is a simple software tool that can help you find the common available times among your team members.<br><br>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to use this tool?
+1. Input the member name and the start and end bound for each member. The start and end bound refers the time range of work.
 
-Currently, two official plugins are available:
+2. After that, you can input the start and end time slots for each member. The start and end time refers the busy time slots.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+3. When there are two or more members, the solution button be displayed and you can just click on it to see the available time slots.<br><br>
 
-## Expanding the ESLint configuration
+## Rules & Constraints
+1. Easy Schedule accepts either an exact full hour or an hour and thrity mintues. For e.g. inputs may look like 10:00, 10:30, 14:00, 14:30 etc.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. Easy Schedule accepts up to 10 members and each member can have up to 7 different busy time slots
 
-- Configure the top-level `parserOptions` property like this:
+3. Easy Schedule does not save anything that were created and data will be gone if the page is refreshed or reloaded<br><br>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## License
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+This software is released under [MIT LICENSE](./LICENSE)
