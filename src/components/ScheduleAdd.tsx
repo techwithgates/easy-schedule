@@ -47,18 +47,18 @@ const ScheduleAdd: React.FC<ScheduleProps> = (props) => {
 	}
 
 	return (
-		<div className="flex z-10 fixed inset-0 items-center justify-center">
+		<div className="sm:flex z-10 absolute sm:fixed inset-0 items-center justify-center">
 			<div className="fixed inset-0 bg-opacity-80 bg-black" onClick={closeModal}/>
-			<div className="flex gap-3">
-				<div className="w-[500px] bg-gray-50 rounded-lg shadow-xl relative h-[32rem]">
+			<div className="sm:flex gap-3">
+				<div className="sm:w-[500px] bg-gray-50 sm:rounded-lg shadow-xl relative sm:h-[32rem]">
 					<div className="flex justify-end absolute right-0 top-0 pt-4 pr-4">
-						<div className='bg-gray-300 rounded-full w-[25px] h-[26px] cursor-pointer hover:bg-gray-300/75 text-gray-600' 
-							onClick={closeModal}>&times;</div>
+						<div className='bg-gray-300 rounded-full w-[25px] h-[26px] cursor-pointer hover:bg-gray-300/75 text-gray-600
+							text-center' onClick={closeModal}>&times;</div>
 					</div>
 					<div className="px-5 py-4 text-left text-gray-500 tracking-wide">
-						<h2 className="text-xl font-semibold mb-3 text-gray-700">Add Busy Schedule</h2>
-						<div className="border-t border-gray-400 w-full mt-1"/>
-						<form ref={formRef} className="text-[16px] text-gray-700" onSubmit={addSchedule}>
+						<h2 className="sm:text-xl mb-3 text-gray-700">Add Busy Schedule</h2>
+						<div className="border-t border-gray-400 w-full my-2"/>
+						<form ref={formRef} className="text-sm sm:text-[16px] text-gray-700" onSubmit={addSchedule}>
 							<div className="flex flex-col py-2">
 								<label>Start Bound</label>
 								<input type="text" className="rounded-lg w-full mt-2 bg-slate-200 p-3 pb-[13px] cursor-not-allowed
@@ -85,12 +85,13 @@ const ScheduleAdd: React.FC<ScheduleProps> = (props) => {
 								tracking-wider'>Add Period</button>
 						</form>
 					</div>
+					<div className="pb-2 border-t border-gray-500 w-full sm:border-none"/>
 				</div>
-				<div className="w-[500px] bg-gray-50 rounded-lg shadow-xl relative h-[30rem] p-3">
-					<div className="bg-zinc-200 p-3 rounded-md overflow-y-auto max-h-[28.5rem]">
+				<div className="sm:w-[500px] bg-gray-50 sm:rounded-lg shadow-xl relative sm:h-[30rem] p-3">	
+					<div className="bg-zinc-200 p-3 sm:rounded-md sm:overflow-y-auto sm:max-h-[28.5rem]">
 						{
 							schedules.map((schedule, idx) =>
-								<div className="flex justify-between p-3 mx-1 hover:bg-zinc-100 rounded-md" key={idx}>
+								<div className="flex justify-between py-2 sm:p-3 sm:mx-1 hover:bg-zinc-100 rounded-md" key={idx}>
 									<p className="flex">{idx + 1}. {schedule.startTime} - {schedule.endTime}</p>
 									<div className="flex gap-4">
 										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"

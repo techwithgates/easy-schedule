@@ -22,7 +22,7 @@ const Solution: React.FC<SolutionProps> = (props) => {
         nextStartTime.setHours(parseInt(startBound.slice(0, 2)), parseInt(startBound.slice(3)) + 30, 0)
         endTime.setHours(parseInt(_startTime.slice(0, 2)), parseInt(_startTime.slice(3)), 0)
 
-         // iterate and get the available slots
+        // iterate and get the available slots
         while(nextStartTime <= endTime){
             slotsPerMember.push(`${dayjs(startTime).format('HH:mm')} - ${dayjs(nextStartTime).format('HH:mm')}`)
             startTime.setMinutes(startTime.getMinutes() + 30)
@@ -78,7 +78,7 @@ const Solution: React.FC<SolutionProps> = (props) => {
 
     // get the common available time slots across the members
     const getCommonAvailableSlots = () => {
-        const firstMemSlots = [...slots[0]]
+        const firstMemSlots = slots[0] // available slots of a the first member
         let exists = false
 
         // iterate and get the common available time slots
@@ -91,9 +91,7 @@ const Solution: React.FC<SolutionProps> = (props) => {
                 exists = false
                 break
             }
-            if(exists){
-                availableSlots.push(slot)
-            }
+            exists && availableSlots.push(slot)
             exists = false
         }
     }
@@ -119,13 +117,17 @@ const Solution: React.FC<SolutionProps> = (props) => {
     }, [])
 
     return (
-        <div className="flex z-10 fixed inset-0 items-center justify-center">
+        <div className="sm:flex z-10 absolute sm:fixed inset-0 items-center justify-center">
 			<div className="fixed inset-0 bg-opacity-80 bg-black" onClick={closeModal}/>
-            <div className="w-[500px] bg-gray-50 rounded-lg relative h-[30rem] p-2">
+            <div className="sm:w-[500px] bg-gray-50 sm:rounded-lg relative sm:h-[30rem] p-2">
+                <div className="flex justify-end absolute right-0 top-0 pt-4 pr-4">
+                    <div className='bg-gray-300 rounded-full w-[25px] h-[26px] cursor-pointer hover:bg-gray-300/75 text-gray-600
+                        text-center' onClick={closeModal}>&times;</div>
+                </div>
                 <div className="px-5 py-4 text-left text-gray-500 tracking-wide">
-                    <h2 className="text-xl font-semibold mb-3 text-gray-700">Common Available Time Slots</h2>
+                    <h2 className="sm:text-xl mb-3 text-gray-700">Common Available Slots</h2>
                     <div className="border-t border-gray-400 w-full mt-1 mb-3"/>
-                    <div className="p-3 bg-slate-200 rounded-md overflow-y-auto max-h-[24rem] h-[30rem]">
+                    <div className="p-3 bg-slate-200 rounded-md sm:overflow-y-auto sm:max-h-[24rem] sm:h-[30rem]">
                         {
                             solution.map((sol, idx) => 
                                 <div key={idx} className="p-2 text-gray-700 hover:bg-slate-100 rounded-md">
